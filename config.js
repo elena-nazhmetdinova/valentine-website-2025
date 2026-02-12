@@ -1,56 +1,51 @@
-// config.js
 // ============================================
 // 💝 CUSTOMIZE YOUR VALENTINE'S WEBSITE HERE 💝
 // ============================================
 
 const CONFIG = {
-  valentineName: "Thijs!",
+    valentineName: "Thijs!",
 
-  pageTitle: "Will You Be My Valentine? 💝",
+    pageTitle: "Will You Be My Valentine? 💝",
 
-  floatingEmojis: {
-    hearts: ["❤️", "💖", "💝", "💗", "💓"],
-    bears: ["🐹"] // hamster only
-  },
+    floatingEmojis: {
+        hearts: ['❤️', '💖', '💝', '💗', '💓'],
+        bears: ['🐹', '🐹']
+    },
 
-  question: {
-    text: "Will you be my Valentine? 🌹",
-    hintText: "Try to say no...",
-    yesBtn: "Yes",
-    noBtn: "No"
-  },
+    // Single question
+    question: {
+        text: "Will you be my Valentine?",
+        hintText: "Try to say no...",
+        yesBtn: "Yes",
+        noBtn: "No"
+    },
 
-  celebration: {
-    title: "Aww! I'm the luckiest homikje!",
-    hearts: ["❤️", "💖", "💝", "💗", "💓"],
-    bears: ["🐹"] // hamster only,
-    noteText:
-`Spend this Valentine with me, my love. 
+    // Celebration + note
+    celebration: {
+        title: "Aww! I'm the luckiest homikje!",
+        message: "Here is a note for you.",
+        emojis: "🎁💖🤗💝💋❤️💕"  // These will bounce around,
+        noteText: "Spend this Valentine with me, my love. 
+  
+        At 17:00, Saturday, at Archibald Restaurant Bussum."
+    },
 
-At 17:00, Saturday, at Archibald Restaurant Bussum.
+    colors: {
+        backgroundStart: "#ffafbd",
+        backgroundEnd: "#ffc3a0",
+        buttonBackground: "#ff6b6b",
+        buttonHover: "#ff8787",
+        textColor: "#ff4757"
+    },
 
-Elena xxx.`
-  },
-
-  colors: {
-    backgroundStart: "#ffafbd",
-    backgroundEnd: "#ffc3a0",
-    buttonBackground: "#ff6b6b",
-    buttonHover: "#ff8787",
-    textColor: "#ff4757"
-  },
-
-  animations: {
-    floatDurationMs: 16000, // general floating emoji rise time
-    floatIntervalMs: 520,   // how often to spawn a floating emoji
-    bounceSpeed: "0.5s"
-  }
+    animations: {
+        floatDuration: "15s",
+        floatDistance: "50px",
+        bounceSpeed: "0.5s",
+        heartExplosionSize: 1.5
+    }
 };
 
+// Don't modify anything below this line unless you know what you're doing
 window.VALENTINE_CONFIG = CONFIG;
 document.title = CONFIG.pageTitle;
-
-  // (Removed) music config entirely ✅
-};
-
-window.VALENTINE_CONFIG = CONFIG;
