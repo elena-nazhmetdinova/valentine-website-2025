@@ -1,3 +1,4 @@
+/* styles.css */
 :root{
   --bg-start:#ffafbd;
   --bg-end:#ffc3a0;
@@ -6,6 +7,8 @@
   --text:#ff4757;
 }
 
+*{ box-sizing: border-box; }
+
 body{
   margin:0;
   min-height:100vh;
@@ -13,53 +16,13 @@ body{
   justify-content:center;
   align-items:center;
   background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: var(--text);
+  overflow:hidden;
 }
 
-.valentine-wrap{
-  text-align:center;
-  padding: 24px;
-  max-width: 520px;
-}
-
-.valentine-title{
-  font-size: 42px;
-  margin: 0 0 10px;
-}
-
-.valentine-question{
-  font-size: 22px;
-  margin: 0 0 8px;
-}
-
-.valentine-hint{
-  font-size: 14px;
-  opacity: 0.85;
-  margin: 0 0 18px;
-}
-
-.valentine-actions{
-  display:flex;
-  gap: 12px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-
-.btn{
-  border: none;
-  padding: 12px 18px;
-  border-radius: 14px;
-  cursor: pointer;
-  font-size: 16px;
-  background: var(--btn-bg);
-  color: white;
-  transition: transform .12s ease, background .12s ease;
-}
-
-.btn:hover{ background: var(--btn-hover); transform: translateY(-1px); }
-
-.floating-layer{
+/* Floating elements container */
+.floating-elements{
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -68,29 +31,121 @@ body{
 }
 
 .floating-emoji{
-  position: absolute;
-  bottom: -30px;
-  font-size: 22px;
+  position:absolute;
+  bottom:-30px;
+  font-size:22px;
+  opacity:0;
   animation: floatUp linear forwards;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.08));
 }
 
 @keyframes floatUp{
-  from { transform: translateY(0); opacity: 0; }
-  10% { opacity: 1; }
-  to { transform: translateY(-110vh); opacity: 0; }
+  0%{ transform: translateY(0) translateX(0); opacity:0; }
+  10%{ opacity: 1; }
+  100%{ transform: translateY(-110vh) translateX(40px); opacity:0; }
 }
 
-.celebrate-emojis{
-  margin-top: 16px;
+/* Main content */
+.container{
+  position: relative;
+  z-index: 2;
+  width: min(680px, calc(100vw - 32px));
+  text-align:center;
+  padding: 22px 18px 26px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.10);
+}
+
+#valentineTitle{
+  font-family: 'Dancing Script', cursive;
+  font-size: 58px;
+  margin: 8px 0 10px;
+  color: #ff3f6e;
+  text-shadow: 0 8px 24px rgba(255, 63, 110, 0.20);
+}
+
+.question-section h2{
+  margin: 10px 0 8px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.hint-text{
+  margin: 8px 0 16px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.btn-row{
+  display:flex;
+  gap: 12px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top: 6px;
+}
+
+.cute-btn{
+  border:none;
+  border-radius: 18px;
+  padding: 12px 18px;
+  font-size: 16px;
+  cursor:pointer;
+  background: var(--btn-bg);
+  color:#fff;
+  transition: transform .12s ease, background .12s ease, box-shadow .12s ease;
+  box-shadow: 0 10px 22px rgba(255, 107, 107, 0.25);
+}
+
+.cute-btn:hover{
+  background: var(--btn-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(255, 107, 107, 0.30);
+}
+
+.final-yes{
+  background: #ff3f6e;
+}
+.final-yes:hover{
+  background: #ff5a83;
+}
+
+.special{
+  background: #ff7aa2;
+}
+.special:hover{
+  background: #ff92b4;
+}
+
+.hidden{
+  display:none !important;
+}
+
+/* Celebration */
+.celebration h2{
+  font-family: 'Dancing Script', cursive;
+  font-size: 44px;
+  margin: 6px 0 10px;
+  color: #ff3f6e;
+}
+
+.celebration-text{
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+#celebrationEmojis{
+  margin-top: 14px;
   font-size: 28px;
 }
 
+/* Bouncy emojis */
 .bounce-emoji{
   display:inline-block;
   margin: 0 2px;
-  animation: bounce 0.5s infinite alternate;
+  animation: bounce var(--bounce-speed, 0.5s) infinite alternate;
 }
-
 @keyframes bounce{
   from{ transform: translateY(0); }
   to{ transform: translateY(-10px); }
@@ -103,27 +158,85 @@ body{
   z-index: 9999;
 }
 
-.note-modal-backdrop{
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,.35);
+.note-backdrop{
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.35);
 }
 
-.note-modal-card{
-  position: absolute;
-  left: 50%;
-  top: 50%;
+.note-card{
+  position:absolute;
+  left:50%;
+  top:50%;
   transform: translate(-50%, -50%);
-  width: min(520px, calc(100vw - 32px));
-  background: white;
-  color: #222;
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  width: min(560px, calc(100vw - 32px));
+  background:#fff;
+  border-radius: 22px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+  text-align:left;
+  transform-style: preserve-3d;
+  transform-origin: top center;
+  opacity: 0; /* will animate in */
+}
+
+/* Folding open animation when modal shows */
+.note-modal:not(.hidden) .note-card{
+  animation: foldOpen 520ms cubic-bezier(.2,.9,.2,1) forwards;
+}
+
+@keyframes foldOpen{
+  0%{
+    transform: translate(-50%, -50%) rotateX(85deg) scale(0.98);
+    opacity: 0;
+    filter: blur(1px);
+  }
+  60%{
+    transform: translate(-50%, -50%) rotateX(-10deg) scale(1.01);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100%{
+    transform: translate(-50%, -50%) rotateX(0deg) scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
 }
 
 .note-title{
-  margin: 0 0 10px;
+  margin: 0 0 8px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 34px;
+  color: #ff3f6e;
+}
+
+.note-body{
+  margin: 0 0 14px;
+  line-height: 1.5;
+  color: #333;
+  font-size: 16px;
+}
+
+/* Sparkles */
+.sparkle-layer{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.sparkle{
+  position:absolute;
+  font-size: 14px;
+  opacity: 0;
+  animation: sparklePop 900ms ease-out forwards;
+  filter: blur(0.2px);
+}
+
+@keyframes sparklePop{
+  0%{ transform: translateY(6px) scale(0.6); opacity: 0; }
+  20%{ opacity: 0.9; }
+  100%{ transform: translateY(-32px) scale(1.15); opacity: 0; }
 }
 
 .note-text{
