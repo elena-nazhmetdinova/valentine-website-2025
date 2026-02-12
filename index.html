@@ -1,58 +1,57 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Will You Be My Valentine? 💝</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💝</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Floating Background Elements -->
-  <div class="floating-elements" aria-hidden="true"></div>
-
-  <!-- Main Content Container -->
-  <div class="container">
-    <h1 id="valentineTitle"></h1>
-
-    <!-- Single Question -->
-    <div class="question-section" id="questionSingle">
-      <h2 id="questionText"></h2>
-      <div class="hint-text" id="hintText">Try to say no...</div>
-
-      <div class="btn-row">
-        <button class="cute-btn final-yes" id="yesBtn">Yes</button>
-        <button class="cute-btn" id="noBtn">No</button>
-      </div>
+    <!-- Floating Background Elements -->
+    <div class="floating-elements">
+        <!-- Hearts and bears will be added here by JavaScript -->
     </div>
 
-    <!-- Celebration screen -->
-    <div class="celebration hidden" id="celebration">
-      <h2 id="celebrationTitle"></h2>
-      <p class="celebration-text" id="celebrationMessage"></p>
+    <!-- Main Content Container -->
+    <div class="container">
+        <h1 id="valentineTitle"></h1>
 
-      <button class="cute-btn special" id="openNoteBtn">Open note 💌</button>
+        <!-- Single Question -->
+        <div class="question-section" id="questionSingle">
+            <h2 id="questionText"></h2>
 
-      <p class="celebration-text" id="celebrationEmojis"></p>
+            <div class="hint-text" id="hintText">Try to say no...</div>
+
+            <button class="cute-btn final-yes" onclick="celebrate()" id="yesBtn"></button>
+            <button class="cute-btn" onclick="moveButton(this)" id="noBtn"></button>
+        </div>
+
+        <!-- Celebration screen -->
+        <div class="celebration hidden" id="celebration">
+            <h2 id="celebrationTitle"></h2>
+            <p class="celebration-text" id="celebrationMessage"></p>
+
+            <button class="cute-btn special" id="openNoteBtn">Open note 💌</button>
+
+            <p class="celebration-text" id="celebrationEmojis"></p>
+        </div>
     </div>
-  </div>
 
-  <!-- Note Modal -->
-  <div class="note-modal hidden" id="noteModal">
-    <div class="note-backdrop" id="noteBackdrop"></div>
-
-    <div class="note-card" id="noteCard" role="dialog" aria-modal="true" aria-label="Note">
-      <h3 class="note-title">💌 Note</h3>
-      <p class="note-body" id="noteBody"></p>
-      <button class="cute-btn" id="closeNoteBtn">Close</button>
+    <!-- Note Modal -->
+    <div class="note-modal hidden" id="noteModal">
+        <div class="note-backdrop" id="noteBackdrop"></div>
+        <div class="note-card" role="dialog" aria-modal="true" aria-label="Note">
+            <h3 class="note-title">💌 Note</h3>
+            <p class="note-body" id="noteBody"></p>
+            <button class="cute-btn" id="closeNoteBtn">Close</button>
+        </div>
     </div>
-  </div>
 
-  <!-- Scripts -->
-  <script src="config.js"></script>
-  <script src="theme.js"></script>
-  <script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="theme.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
