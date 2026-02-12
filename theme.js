@@ -1,12 +1,21 @@
-// theme.js
-// Safe theme applier (no music dependencies)
-(() => {
-  const CONFIG = window.VALENTINE_CONFIG;
-  if (!CONFIG) return;
+// Update CSS variables from configuration
+function applyTheme() {
+    const config = window.VALENTINE_CONFIG;
+    const root = document.documentElement;
 
-  document.documentElement.style.setProperty("--bg-start", CONFIG.colors.backgroundStart);
-  document.documentElement.style.setProperty("--bg-end", CONFIG.colors.backgroundEnd);
-  document.documentElement.style.setProperty("--btn-bg", CONFIG.colors.buttonBackground);
-  document.documentElement.style.setProperty("--btn-hover", CONFIG.colors.buttonHover);
-  document.documentElement.style.setProperty("--text", CONFIG.colors.textColor);
-})();
+    // Apply colors
+    root.style.setProperty('--background-color-1', config.colors.backgroundStart);
+    root.style.setProperty('--background-color-2', config.colors.backgroundEnd);
+    root.style.setProperty('--button-color', config.colors.buttonBackground);
+    root.style.setProperty('--button-hover', config.colors.buttonHover);
+    root.style.setProperty('--text-color', config.colors.textColor);
+
+    // Apply animation settings
+    root.style.setProperty('--float-duration', config.animations.floatDuration);
+    root.style.setProperty('--float-distance', config.animations.floatDistance);
+    root.style.setProperty('--bounce-speed', config.animations.bounceSpeed);
+    root.style.setProperty('--heart-explosion-size', config.animations.heartExplosionSize);
+}
+
+// Apply theme when the page loads
+window.addEventListener('DOMContentLoaded', applyTheme); 
