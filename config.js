@@ -4,7 +4,7 @@
 
 const CONFIG = {
   // Name (no "my love")
-  valentineName: "Thijs",
+  valentineName: "Thijs!",
 
   // Tab title
   pageTitle: "Will You Be My Valentine? 💝",
@@ -26,11 +26,13 @@ const CONFIG = {
   // After "Yes"
   celebration: {
     title: "Aww! I'm the luckiest homikje!",
-    message: "Here is a note for you.",
+    message: "Here is a small note for you.",
     noteButtonText: "Open note 💌",
     noteText:
-      "Spend this Valentine with me, my love. At 17:00, Saturday, at Archibald Restaurant Bussum.",
-    emojis: "🎁💖🤗💝💋❤️💕",
+      "Spend this Valentine with me, my love! 
+      At 17:00, Saturday, at Archibald Restaurant Bussum.",
+    floatingEmojis: {
+    hearts: ["❤️", "💖", "💝", "💗", "💓"],
   },
 
   // Colors
